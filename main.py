@@ -80,16 +80,17 @@ def parse():
                         messages_by_name[name] = []
 
                     if type(text) == str:
-
                         messages_by_name[name].append(text)
-                    else:
-                        print(type(text))
+
                 except:
                     pass
     with open("messages.pkl", "wb") as f:
         pickle.dump(messages_by_name, f)
     with open("users.txt", "w", encoding="utf-8") as f:
         f.write('\n'.join(messages_by_name.keys()))
+    for i in messages_by_name:
+        messages = len(messages_by_name[i])
+        print(f"{i} - {messages}")
 
 
 def give_pic(jobs, file_name, dpi=300, max_words=None, min_chars=3):

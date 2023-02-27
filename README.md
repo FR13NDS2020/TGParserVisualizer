@@ -65,3 +65,13 @@ You can adjust the parameters to customize the table:<br />
 
 For example, you can run the following command to generate a table with 15 columns, a minimum word length of 4, and only words in "unicwords.txt":<br />
 &emsp;`main.py -a table -c 15 -l 4`
+
+## Advanced
+
+1. `banned.txt`: This file contains a list of words that should not appear in the visualization. You can customize this file by adding or removing words according to your preferences.
+
+2. `unicwords.txt`: This file contains a list of words that should be displayed in the visualization. However, this only works if you add the "-u" parameter while using the visualization tool, and it only works for tables.
+
+For optimal results, please add words in the following format: "word1, word2, word3, word4".<br />
+
+Please note that these files are intended for advanced users who want to customize the visualization tool according to their specific needs. If you're not comfortable working with these files, you can still use the visualization tool without modifying them. 

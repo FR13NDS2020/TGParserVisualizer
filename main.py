@@ -40,7 +40,7 @@ parser.add_argument('-u', '--unic_words', help='Shows only unicwords in unicword
 parser.add_argument('-l', '--len', type=int, help='Changes the minimal length of a word', default=3, action='store', dest='len')
 parser.add_argument('--dpi', type=int, help='Changes DPI of the image', default=300, action='store', dest='dpi')
 parser.add_argument('-m', '--max_words', type=int, help='Changes the maximum count of words for the image', action='store', dest='max_words')
-parser.add_argument('-a', '--action',  help='Select the action to do', default='image', choices=['image', 'table', 'parse'], required=True)
+parser.add_argument('-a', '--action',  help='Select the action to do', default='image', choices=['image', 'table', 'parse'], required=False)
 parser.add_argument('-c', '--columns', type=int, help='Columns count for table', dest='columns',default=10)
 
 args = parser.parse_args()
@@ -75,15 +75,15 @@ def parse():
             for i in data["messages"]:
                 try:
                     name = i["from"]
-                    text = i["text"]
+
                     if name not in messages_by_name:
                         messages_by_name[name] = []
 
-                    if type(text) == str:
-                        messages_by_name[name].append(text)
-
+                    for j in i["text_entities"]:
+                        messages_by_name[name].append(j["text"])
                 except:
                     pass
+
     with open("messages.pkl", "wb") as f:
         pickle.dump(messages_by_name, f)
     with open("users.txt", "w", encoding="utf-8") as f:
@@ -185,4 +185,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    parse()

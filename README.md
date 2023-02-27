@@ -18,17 +18,23 @@ Download Python 3.10. While other versions may work, compatibility cannot be gua
 
 1. Create a new virtual environment by running the following command:
 
-	'''python -m venv myenv'''
+	'''python
+	python -m venv myenv
+	'''
 
 2. Activate the virtual environment. Depending on your operating system, use one of the following commands:
 
 	On Windows:
 
-	'''myenv\Scripts\activate.bat'''
+	'''bash
+	myenv\Scripts\activate.bat
+	'''
 
 	On Unix or Linux:
 
-	'''source myenv/bin/activate'''
+	'''python
+	source myenv/bin/activate
+	'''
 
 3. Install the required modules listed in the requirements.txt file by running the following command:
 

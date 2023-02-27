@@ -7,10 +7,10 @@ Before you can start visualizing your Telegram chat history, you need to export 
 * Open Telegram and go to the chat, bot, channel, or group whose chat history you want to export.
 * Click on the three dots menu at the top right corner of the chat window.
 * Select "Export chat history" from the menu.
-* Choose the format in which you want to export your chat history (e.g. HTML) and select the date range for which you want to export the chat history.
+* Choose the format(JSON) and select the date range for which you want to export the chat history.
 * Click "Export" to save the chat history to your computer.
-* Once you've exported your chat history, you need to copy all the HTML files to the "messages" folder located in "/downloads/Telegram/Telegram Desktop/Chat_Export/".
-
+* Once you've exported your chat history(located in "/downloads/Telegram/Telegram Desktop/Chat_Export/"), you need to copy all the result.JSON files to the "messages" folder".
+* You can add chat history from all your chats or groups, simply do the same with them and add your JSON files to folder
 
 ### Environment Setup
 
@@ -64,4 +64,4 @@ You can adjust the parameters to customize the table:<br />
 + `--len`or`-l`: Change the minimum length of the words in the table (default is 3).<br />
 
 For example, you can run the following command to generate a table with 15 columns, a minimum word length of 4, and only words in "unicwords.txt":<br />
-&emsp;`main.py -a table -c 15 -l`
+&emsp;`main.py -a table -c 15 -l 4`

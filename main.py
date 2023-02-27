@@ -1,4 +1,3 @@
-from bs4 import BeautifulSoup
 import pickle
 import nltk
 import argparse
@@ -12,7 +11,7 @@ from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import seaborn as sns
 import warnings
-
+import json
 # create banned.txt file if it doesn't exist
 if not os.path.exists("banned.txt"):
     open("banned.txt", 'w').close()
@@ -25,6 +24,7 @@ if not os.path.exists("unicwords.txt"):
 os.makedirs("images", exist_ok=True)
 os.makedirs("messages", exist_ok=True)
 os.makedirs("tables", exist_ok=True)
+
 # Ignore UserWarnings
 warnings.filterwarnings('ignore', category=UserWarning)
 
@@ -41,11 +41,14 @@ parser.add_argument('-l', '--len', type=int, help='Changes the minimal length of
 parser.add_argument('--dpi', type=int, help='Changes DPI of the image', default=300, action='store', dest='dpi')
 parser.add_argument('-m', '--max_words', type=int, help='Changes the maximum count of words for the image', action='store', dest='max_words')
 parser.add_argument('-a', '--action',  help='Select the action to do', default='image', choices=['image', 'table', 'parse'], required=True)
-parser.add_argument('-c', '--columns', type=int, help='Columns count for table', dest='columns')
+parser.add_argument('-c', '--columns', type=int, help='Columns count for table', dest='columns',default=10)
 
 args = parser.parse_args()
 
 
+def read_data(file_name):
+    with open(f"{file_name}", "r", encoding="utf-8") as f:
+        return json.load(f)
 
 
 def read_words_from_file(filename):
@@ -66,32 +69,23 @@ def parse():
     messages_by_name = {}
 
     for file_name in os.listdir("./messages"):
-        if file_name.endswith(".html"):
+        if file_name.endswith(".json"):
             file_path = os.path.join("./messages", file_name)
-            with open(file_path, "r", encoding="utf-8") as f:
-                soup = BeautifulSoup(f, "html.parser")
-                messages = soup.select(".message.default.clearfix")
-                for i in messages:
-                    cls = len(i["class"])
-                    if cls == 3:
-                        name_elem = i.select_one("div.from_name")
-                        text = i.find("div", {"class": "text"})
-                        name = name_elem.get_text(strip=True)
-                        if name not in messages_by_name:
-                            messages_by_name[name] = []
-                        if text is not None:
-                            messages_by_name[name].append(text.text.strip())
-                    if cls == 4:
-                        previous = i.select_one("div.from_name")
-                        text = i.find("div", {"class": "text"})
-                        name1 = name
-                        if previous is not None:
-                            name1 = previous.get_text(strip=True)
-                        if text is not None:
-                            try:
-                                messages_by_name[name1].append(text.text.strip())
-                            except:
-                                pass
+            data = read_data(file_path)
+            for i in data["messages"]:
+                try:
+                    name = i["from"]
+                    text = i["text"]
+                    if name not in messages_by_name:
+                        messages_by_name[name] = []
+
+                    if type(text) == str:
+
+                        messages_by_name[name].append(text)
+                    else:
+                        print(type(text))
+                except:
+                    pass
     with open("messages.pkl", "wb") as f:
         pickle.dump(messages_by_name, f)
     with open("users.txt", "w", encoding="utf-8") as f:
@@ -100,7 +94,6 @@ def parse():
 
 def give_pic(jobs, file_name, dpi=300, max_words=None, min_chars=3):
     """"creates the words cloud"""
-
     # Tokenize the data
     text = ' '.join(jobs)
     tokens = word_tokenize(text)
@@ -174,7 +167,7 @@ def main():
             soup_str = pickle.load(f)
 
             user_list = users("users.txt")
-            u_words = read_words_from_file("unicwords.txt") if args.unicwords else None
+            u_words = read_words_from_file("unicwords.txt") if args.unic_words else None
 
             for i in tqdm.tqdm(user_list, desc="Generating tables"):
                 messages = soup_str[i]

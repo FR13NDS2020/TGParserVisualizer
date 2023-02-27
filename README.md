@@ -1,5 +1,5 @@
 # TGParserVisualizer - Visualize your Telegram chat history
-🚀🐍💬 TGParserVisualizer is Python script that can help you create word clouds and tables from your Telegram chat history! 📊 With its features, you can easily analyze your chat data and gain insights into your communication patterns! 👥
+🚀🐍💬 TGParserVisualizer is Python script that can help you create word clouds and tables from your Telegram chat history!  With its features, you can easily analyze your chat data and gain insights into your communication patterns! 
 
 ## How to Use ?
 

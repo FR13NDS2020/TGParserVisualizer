@@ -18,21 +18,21 @@ Download Python 3.10. While other versions may work, compatibility cannot be gua
 
 1. Create a new virtual environment by running the following command:
 
-	'python -m venv myenv'
+	'''python -m venv myenv'''
 
 2. Activate the virtual environment. Depending on your operating system, use one of the following commands:
 
 	On Windows:
 
-	'myenv\Scripts\activate.bat'
+	'''myenv\Scripts\activate.bat'''
 
 	On Unix or Linux:
 
-	'source myenv/bin/activate'
+	'''source myenv/bin/activate'''
 
 3. Install the required modules listed in the requirements.txt file by running the following command:
 
-	'pip install -r requirements.txt'
+	'''pip install -r requirements.txt'''
 
 
 ### Parsing and Visualizing
@@ -41,14 +41,14 @@ Once you have your chat history exported and the HTML files copied to the "messa
 ### 💻Parsing 
 The first step is to parse the messages and save them to a file. To do this, open the command prompt and navigate to the folder where you downloaded TGParserVisualizer. Then, run the following command:
 
-'python main.py -a parse'
+'''python main.py -a parse'''
 
 After parsing, a file named "users.txt" will be generated. This file contains a list of all the users in your chat history. You can remove users that you don't want to include in the visualization by deleting their names from the "users.txt" file.
 
 ### 💭Word Cloud
 To generate a word cloud image, run the following command:
 
-'main.py -a image --dpi 300 --len 3 --max_words 100'
+'''main.py -a image --dpi 300 --len 3 --max_words 100'''
 
 You can adjust the parameters to customize the word cloud image:
 --dpi: Change the DPI of the image to get a more informative image (default is 300).
@@ -56,12 +56,12 @@ You can adjust the parameters to customize the word cloud image:
 --max_words: Change the maximum count of words in the image. Be cautious when increasing this value, as larger numbers will slow down the process.
 For example, you can run the following command to generate an image with a DPI of 320, a minimum word length of 4, and a maximum word count of 200:
 
-'main.py -a image --dpi 320 -l 4 -m 200'
+'''main.py -a image --dpi 320 -l 4 -m 200'''
 
 ### 📊Table
 To generate a table, run the following command:
 
-'main.py -a table --columns 10 --unic_words --len 3'
+'''main.py -a table --columns 10 --unic_words --len 3'''
 
 
 You can adjust the parameters to customize the table:
@@ -71,4 +71,4 @@ You can adjust the parameters to customize the table:
 
 For example, you can run the following command to generate a table with 15 columns, a minimum word length of 4, and only words in "unicwords.txt":
 
-'main.py -a table -c 15 -l'
+'''main.py -a table -c 15 -l'''

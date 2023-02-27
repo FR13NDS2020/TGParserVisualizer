@@ -52,8 +52,11 @@ To generate a word cloud image, run the following command:
 
 You can adjust the parameters to customize the word cloud image:
 	--dpi: Change the DPI of the image to get a more informative image (default is 300).
+
 	--len: Change the minimum length of the words in the image (default is 3).
+
 	--max_words: Change the maximum count of words in the image. Be cautious when increasing this value, as larger numbers will slow down the process.
+
 	For example, you can run the following command to generate an image with a DPI of 320, a minimum word length of 4, and a maximum word count of 200:
 
 	'main.py -a image --dpi 320 -l 4 -m 200'
@@ -66,8 +69,11 @@ To generate a table, run the following command:
 
 You can adjust the parameters to customize the table:
 	--columns: Change the number of columns in the table (default is 10).
+
 	--unic_words: If this flag is set, only words in "unicwords.txt" will be returned.
+
 	--len: Change the minimum length of the words in the table (default is 3).
+	
 	For example, you can run the following command to generate a table with 15 columns, a minimum word length of 4, and only words in "unicwords.txt":
 
 	'main.py -a table -c 15 -l'

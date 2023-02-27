@@ -17,7 +17,7 @@ Before you can start visualizing your Telegram chat history, you need to export 
 Download Python 3.10. While other versions may work, compatibility cannot be guaranteed.
 
 &emsp; 1. Create a new virtual environment by running the following command:<br />
-	&emsp;&emsp;&emsp;```python -m venv myenv```
+	&emsp;&emsp;```python -m venv myenv```
 
 &emsp; 2. Activate the virtual environment. Depending on your operating system, use one of the following commands:<br />
     &emsp;On Windows:<br />
@@ -45,8 +45,8 @@ To generate a word cloud image, run the following command:<br />
 
 You can adjust the parameters to customize the word cloud image: <br />
 &emsp;`--dpi`: Change the DPI of the image to get a more informative image (default is 300).<br />
-&emsp;`--len`: Change the minimum length of the words in the image (default is 3).<br />
-&emsp;`--max_words`: Change the maximum count of words in the image. Be cautious when increasing this value, as larger numbers will slow down the process.<br />
+&emsp;`--len`or `-l`: Change the minimum length of the words in the image (default is 3).<br />
+&emsp;`--max_words` or `-m`: Change the maximum count of words in the image. Be cautious when increasing this value, as larger numbers will slow down the process.<br />
 For example, you can run the following command to generate an image with a DPI of 320, a minimum word length of 4, and a maximum word count of 200:
 
 &emsp;`main.py -a image --dpi 320 -l 4 -m 200`
@@ -58,9 +58,9 @@ To generate a table, run the following command:
 
 
 You can adjust the parameters to customize the table:<br />
-&emsp;--columns: Change the number of columns in the table (default is 10).<br />
-&emsp;--unic_words: If this flag is set, only words in "unicwords.txt" will be returned.<br />
-&emsp;--len: Change the minimum length of the words in the table (default is 3).<br />
+&emsp;`--columns`or`-c`: Change the number of columns in the table (default is 10).<br />
+&emsp;`--unic_words`or`-u`: If this flag is set, only words in "unicwords.txt" will be returned.<br />
+&emsp;`--len`or`-l`: Change the minimum length of the words in the table (default is 3).<br />
 
 For example, you can run the following command to generate a table with 15 columns, a minimum word length of 4, and only words in "unicwords.txt":<br />
 &emsp;`main.py -a table -c 15 -l`

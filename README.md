@@ -20,14 +20,14 @@ Download Python 3.10. While other versions may work, compatibility cannot be gua
 	&emsp;&emsp;```python -m venv myenv```
 
 &emsp; 2. Activate the virtual environment. Depending on your operating system, use one of the following commands:<br />
-    &emsp;On Windows:<br />
-        &emsp;&emsp;```myenv\Scripts\activate.bat```<br />
-    &emsp;On Unix or Linux:<br />
-        &emsp;&emsp;`source myenv/bin/activate`<br />
++ On Windows:<br />
+&emsp;```myenv\Scripts\activate.bat```<br />
++ On Unix or Linux:<br />
+&emsp;`source myenv/bin/activate`<br />
 
-3. Install the required modules listed in the requirements.txt file by running the following command:
+3. Install the required modules listed in the requirements.txt file by running the following command:<br />
 
-	`pip install -r requirements.txt`
+&emsp; `pip install -r requirements.txt`
 
 
 ### Parsing and Visualizing
@@ -40,13 +40,15 @@ The first step is to parse the messages and save them to a file. To do this, ope
 After parsing, a file named "users.txt" will be generated. This file contains a list of all the users in your chat history. You can remove users that you don't want to include in the visualization by deleting their names from the "users.txt" file.
 
 ### 💭Word Cloud
+
 To generate a word cloud image, run the following command:<br />
-`main.py -a image --dpi 300 --len 3 --max_words 100`
+&emsp;`main.py -a image --dpi 300 --len 3 --max_words 100`
 
 You can adjust the parameters to customize the word cloud image: <br />
-&emsp;`--dpi`: Change the DPI of the image to get a more informative image (default is 300).<br />
-&emsp;`--len`or `-l`: Change the minimum length of the words in the image (default is 3).<br />
-&emsp;`--max_words` or `-m`: Change the maximum count of words in the image. Be cautious when increasing this value, as larger numbers will slow down the process.<br />
++ `--dpi`: Change the DPI of the image to get a more informative image (default is 300).<br />
++ `--len`or `-l`: Change the minimum length of the words in the image (default is 3).<br />
++ `--max_words` or `-m`: Change the maximum count of words in the image. Be cautious when increasing this value, as larger numbers will slow down the process.<br />
+
 For example, you can run the following command to generate an image with a DPI of 320, a minimum word length of 4, and a maximum word count of 200:
 
 &emsp;`main.py -a image --dpi 320 -l 4 -m 200`
@@ -56,11 +58,10 @@ To generate a table, run the following command:
 
 &emsp;`main.py -a table --columns 10 --unic_words --len 3`
 
-
 You can adjust the parameters to customize the table:<br />
-&emsp;`--columns`or`-c`: Change the number of columns in the table (default is 10).<br />
-&emsp;`--unic_words`or`-u`: If this flag is set, only words in "unicwords.txt" will be returned.<br />
-&emsp;`--len`or`-l`: Change the minimum length of the words in the table (default is 3).<br />
++ `--columns`or`-c`: Change the number of columns in the table (default is 10).<br />
++ `--unic_words`or`-u`: If this flag is set, only words in "unicwords.txt" will be returned.<br />
++ `--len`or`-l`: Change the minimum length of the words in the table (default is 3).<br />
 
 For example, you can run the following command to generate a table with 15 columns, a minimum word length of 4, and only words in "unicwords.txt":<br />
 &emsp;`main.py -a table -c 15 -l`

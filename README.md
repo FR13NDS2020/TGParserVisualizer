@@ -18,8 +18,8 @@ Download Python 3.10. While other versions may work, compatibility cannot be gua
 
 1. Create a new virtual environment by running the following command:
 
-'''python
-python -m venv myenv
+'python -m venv myenv'
+
 	
 
 2. Activate the virtual environment. Depending on your operating system, use one of the following commands:

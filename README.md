@@ -64,7 +64,7 @@ You can adjust the parameters to customize the table:<br />
 + `--len`or`-l`: Change the minimum length of the words in the table (default is 3).<br />
 
 For example, you can run the following command to generate a table with 15 columns, a minimum word length of 4, and only words in "unicwords.txt":<br />
-&emsp;`main.py -a table -c 15 -l 4`
+&emsp;`main.py -a table -c 15 -l 4 -u`
 
 ## Advanced
 

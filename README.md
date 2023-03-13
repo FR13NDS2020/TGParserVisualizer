@@ -31,7 +31,7 @@ Download Python 3.10. While other versions may work, compatibility cannot be gua
 
 
 ### Parsing and Visualizing
-Once you have your chat history exported and the HTML files copied to the "messages" folder, you can start parsing and visualizing your chat history with TGParserVisualizer.
+Once you have your chat history exported and the JSON files copied to the "messages" folder, you can start parsing and visualizing your chat history with TGParserVisualizer.
 
 ### 💻Parsing 
 The first step is to parse the messages and save them to a file. To do this, open the command prompt and navigate to the folder where you downloaded TGParserVisualizer. Then, run the following command:<br />
